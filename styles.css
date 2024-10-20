@@ -1,0 +1,360 @@
+/* START: DISCLAIMER CONTAINER STYLING */
+#disclaimerContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%;        /* Responsive width */
+    max-width: 600px;  /* Maximum width */
+    min-width: 300px;  /* Minimum width */
+    max-height: 80vh;  /* Maximum height (80% of viewport) */
+    overflow-y: auto;  /* Enables vertical scrolling if needed */
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    z-index: 10000; /* Ensures it sits above the map */
+    text-align: left; /* Aligns text to the left */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-aligns content horizontally */
+    box-sizing: border-box; /* Ensures padding is included in width */
+}
+/* END: DISCLAIMER CONTAINER STYLING */
+
+
+/* START: I AGREE BUTTON STYLING */
+#agreeButton {
+    background-color: rgb(3, 0, 0);
+    color: rgb(255, 255, 255);
+    border: 2px solid rgb(150, 133, 133);
+    border-radius: 10px;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px; /* Adds space above the button */
+    align-self: center; /* Centers the button horizontally */
+}
+/* END: I AGREE BUTTON STYLING */
+
+/* START: MAP STYLING */
+#mapContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+/* END: MAP STYLING */
+
+/* START: SEARCH CONTAINER STYLING */
+#searchContainer {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    z-index: 9999; /* High z-index to appear above map */
+}
+
+#searchBox {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 25px 0 0 25px;
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+#goButton {
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border: 1px solid black;
+    border-radius: 0 25px 25px 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Helvetica', sans-serif;
+    height: 100%;
+}
+
+#goButton:hover {
+    background-color: #000000;
+}
+
+#goButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+/* END: SEARCH CONTAINER STYLING */
+
+/* DISPLAY BOX STYLING */
+#displayBox {
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    position: absolute;
+    top: 50%; /* Adjust this to avoid overlapping the pinIdentifier */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    display: none; /* Initially hidden */
+}
+
+/* Close button */
+#closeButton {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    padding: 0;
+}
+
+#closeButton::before {
+    content: "✕"; /* Unicode character for 'X' */
+}
+
+#closeButton:hover {
+    background-color: #ff0000;
+}
+
+#closeButton:hover {
+    transform: scale(1.4);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Button container for icons */
+#displayBoxButtons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Icon buttons with shadow and hover effect */
+#displayMailboxButton, #displayDogButton, #displayComfortButton, #displayHintButton {
+    width: 71px;
+    height: 50px;
+    margin: 0 10px; /* Adds horizontal space between buttons */
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 39%;
+}
+
+/* Individual button backgrounds */
+#displayMailboxButton {
+    background-image: url('https://i.ibb.co/S3dfczG/mailbox-app-icon-removebg-preview.png');
+    animation: pinBlueFlash 1.5s infinite;
+}
+
+#displayDogButton {
+    background-image: url('https://i.ibb.co/85sX2sd/angry-dog-app-icon-removebg-preview.png');
+    animation: pinRedFlash 1.5s infinite;
+}
+
+#displayComfortButton {
+    background-image: url('https://i.ibb.co/DDVWd8M/toilet-only-circle-app-icon-removebg-preview.png');
+    animation: pinGreenFlash 1.5s infinite;
+}
+
+#displayHintButton {
+    background-image: url('https://i.ibb.co/N1jNJJc/light-bulb-circle-app-icon-removebg-preview.png');
+    animation: pinYellowFlash 1.5s infinite;
+}
+
+/* Hover effect for buttons */
+#displayMailboxButton:hover, #displayDogButton:hover, #displayComfortButton:hover, #displayHintButton:hover {
+    transform: scale(1.4);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Title Input Styling */
+#titleTextContainer input {
+    width: calc(100% - 20px); /* Ensures it fits within padding */
+    max-width: 100%;
+    height: 40px;
+    border: 1px solid #c9c8c8;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #434343;
+    box-sizing: border-box; /* Ensures padding is included in total width */
+}
+
+#titleTextContainer input::placeholder {
+    color: #aaa;
+}
+
+/* Description Textarea Styling */
+#descriptionTextContainer textarea {
+    width: calc(100% - 20px); /* Ensures it fits within padding */
+    max-width: 100%;
+    height: 60px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #333;
+    resize: none;
+    box-sizing: border-box; /* Ensures padding is included in total width */
+}
+
+#descriptionTextContainer textarea::placeholder {
+    color: #aaa;
+}
+
+
+/* Submit Button Styling */
+#submitButton {
+    width: 100%;
+    padding: 12px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#submitButton:hover {
+    background-color: #2b00ff;
+}
+
+#submitButton:hover {
+    transform: scale(1.04);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* END: DISPLAY BOX STYLING */
+
+/* Styling for PICK YOUR PIN Text */
+#pickPinText {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto 10px auto; /* Centered with top and bottom margin */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Ensures it takes up the full width of the container */
+}
+
+/* Container for pin icon buttons */
+#pinIconButtonsContainer {
+    position: absolute;
+    top: 100px; /* Adjust vertical positioning as needed */
+    left: 20px; /* Adjust horizontal positioning as needed */
+    display: none; /* Initially hidden, show as needed */
+    gap: 10px;
+    z-index: 2000; /* Sits above the map */
+}
+
+
+.smallDisplayTextContainer {
+    display: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 5px1px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 1rem; /* Use responsive units */
+    font-weight: bold;
+    color: #333;
+    position: absolute;
+    z-index: 1000;
+    border: 3px solid #000;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none; /* Allows clicking through to the map */
+    margin-top: 20px;
+    max-width: 80%; /* Ensure it doesn't overflow on smaller screens */
+    height: auto; /* Allow the height to adapt */
+    word-wrap: break-word; /* Break long words in small screens */
+}
+
+/* Triangle pointer below the container */
+.smallDisplayTextContainer::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: #000;
+}
+
+/* Offset positions based on nth-child */
+.smallDisplayTextContainer:nth-child(odd) {
+    transform: translateY(-10px) translateX(-15px);
+}
+
+.smallDisplayTextContainer:nth-child(even) {
+    transform: translateY(10px) translateX(15px);
+}
+
+/* Slightly increasing margin for every 4th item */
+.smallDisplayTextContainer:nth-child(4n) {
+    transform: translateY(-20px) translateX(10px);
+}
+
+/* Responsive design using media queries */
+@media (max-width: 768px) {
+    .smallDisplayTextContainer {
+        font-size: 0.9rem; /* Decrease font size on smaller screens */
+        padding: 3px 8px;
+        max-width: 95%; /* Expand to fit more of the screen */
+        margin-top: 15px;
+    }
+    
+    .smallDisplayTextContainer::after {
+        border-top-color: #000;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 480px) {
+    .smallDisplayTextContainer {
+        font-size: 0.8rem; /* Further reduce font size on very small screens */
+        padding: 2px 6px;
+        max-width: 100%; /* Ensure it fits the entire screen width */
+        margin-top: 10px;
+    }
+    
+    .smallDisplayTextContainer::after {
+        border-top-color: #000;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

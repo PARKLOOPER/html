@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- START: META INFORMATION -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog and Pins Locator</title>
+    <!-- END: META INFORMATION -->
+
+    <!-- START: CSS LINK -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- END: CSS LINK -->
+
+    <!-- START: SCRIPT LINK -->
+    <script src="script.js" defer></script>
+    <!-- END: SCRIPT LINK -->
+
+    <!-- START: LEAFLET CSS LINK -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <!-- END: LEAFLET CSS LINK -->
+</head>
+<body>
+    <!-- START: DISCLAIMER SECTION -->
+    <section id="disclaimerContainer">
+        <p>This tool is designed to support mail carriers in locating and identifying Cluster Box Units (CBUs) and other mailbox-related delivery points. Users are required to ensure that any photos taken and uploaded are from publicly accessible areas and avoid trespassing on private property or photographing from restricted areas. This tool is solely intended for capturing images of mailboxes, CBUs, and delivery points; users should avoid capturing images of people, private residences, any identifiable personal information, or access codes. All images uploaded are publicly viewable, and by using this tool, carriers agree to have taken them lawfully and with respect for privacy, without any intent to intrude upon anyone's personal space. Any images found in violation of these terms will be subject to removal. Please keep our platform positive and respect the privacy of others.</p>
+        <p><em>"By sharing CBU locations, we're helping each other navigate our routes with ease, one drop pin at a time."</em></p>
+        <button id="agreeButton">I AGREE</button>
+    </section>
+    <!-- END: DISCLAIMER SECTION -->
+
+    <!-- START: MAP SECTION -->
+    <div id="mapContainer">
+        <!-- Leaflet map will be initialized here -->
+    </div>
+    <!-- END: MAP SECTION -->
+
+    <!-- START: SEARCH BOX SECTION -->
+    <div id="searchContainer">
+        <input type="text" id="searchBox" placeholder="SEARCH LOCATION">
+        <button id="goButton">GO</button>
+    </div>
+    <!-- END: SEARCH BOX SECTION -->
+
+    <!-- START: BUTTONS SECTION -->
+    <div id="buttonsContainer">
+        <button class="mainButton" id="mailboxButton">Mailbox</button>
+        <button class="mainButton" id="dogButton">Dog</button>
+        <button class="mainButton" id="comfortButton">Comfort</button>
+        <button class="mainButton" id="hintButton">Hint</button>
+    </div>
+    <!-- END: BUTTONS SECTION -->
+
+    <!-- START: DISPLAY BOX SECTION -->
+    <div id="displayBox">
+        <button id="closeButton"></button>
+
+        <!-- Heading Text for Icon Buttons -->
+    <h3 id="pickPinText">PICK YOUR PIN</h3>
+        
+        <!-- START: DISPLAY BOX BUTTONS -->
+        <div id="displayBoxButtons">
+            <button class="displayButton" id="displayMailboxButton">Mailbox</button>
+            <button class="displayButton" id="displayDogButton">Dog</button>
+            <button class="displayButton" id="displayComfortButton">Comfort</button>
+            <button class="displayButton" id="displayHintButton">Hint</button>
+        </div>
+        <hr id="iconSeparator">
+        <!-- END: DISPLAY BOX BUTTONS -->
+
+          <!-- Tag Display for showing button names -->
+    <div id="tagDisplay" style="text-align: center; margin-top: 10px; font-size: 14px; font-weight: bold; color: #333; visibility: hidden;">
+        <!-- Button name will appear here when clicked -->
+    </div>
+    <!-- END: TAG DISPLAY -->
+
+        <!-- START: TITLE TEXT CONTAINER -->
+        <div id="titleTextContainer">
+            <input type="text" placeholder="Enter title..." aria-label="Title">
+        </div>
+        <!-- END: TITLE TEXT CONTAINER -->
+
+        <!-- START: SUBMIT BUTTON -->
+        <button id="submitButton">SUBMIT</button>
+        <!-- END: SUBMIT BUTTON -->
+
+
+    <!-- START: PIN ICON BUTTONS SECTION -->
+<div id="pinIconButtonsContainer">
+    <!-- Pin Mailbox Icon -->
+    <button id="pinMailbox" class="pin-icon" style="background-image: url('https://i.ibb.co/S3dfczG/mailbox-app-icon-removebg-preview.png');"></button>
+
+    <!-- Pin Dog Icon -->
+    <button id="pinDog" class="pin-icon" style="background-image: url('https://i.ibb.co/85sX2sd/angry-dog-app-icon-removebg-preview.png');"></button>
+
+    <!-- Pin Comfort Icon -->
+    <button id="pinComfort" class="pin-icon" style="background-image: url('https://i.ibb.co/DDVWd8M/toilet-only-circle-app-icon-removebg-preview.png');"></button>
+
+    <!-- Pin Hint Icon -->
+    <button id="pinHint" class="pin-icon" style="background-image: url('https://i.ibb.co/N1jNJJc/light-bulb-circle-app-icon-removebg-preview.png');"></button>
+</div>
+<!-- END: PIN ICON BUTTONS SECTION -->
+
+ <!-- START: PIN IDENTIFIER -->
+ <div id="pinIdentifier" style="display: none;">
+    <!-- CLOSE button -->
+    <button id="closePinIdentifier">X</button>
+    
+    <!-- Title display container (not for input) -->
+    <div id="titleDisplayContainer">
+        <h3>Title: <span id="titleDisplayText"></span></h3>
+    </div>
+    
+    <!-- Description display container (not for input) -->
+    <div id="descriptionDisplayContainer">
+        <p>Description: <span id="descriptionDisplayText"></span></p>
+    </div>
+    
+    <!-- Navigate button -->
+    <button id="navigateButton">Navigate</button>
+</div>
+<!-- END: PIN IDENTIFIER -->
+
+        <!-- START: SMALL DISPLAY TEXT CONTAINER -->
+        <div id="smallDisplayTextContainer" style="display: none;">
+            <p><span id="smallDisplayText"></span></p>
+        </div>
+        <!-- END: SMALL DISPLAY TEXT CONTAINER -->
+    </div>
+    <!-- END: DISPLAY BOX SECTION -->
+
+    <!-- START: LEAFLET JS SCRIPT -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- END: LEAFLET JS SCRIPT -->
+
+</body>
+</html>
